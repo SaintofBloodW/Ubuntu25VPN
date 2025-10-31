@@ -34,16 +34,6 @@ echo "Installing apt packages: $APT_PACKAGES..."
 sudo apt update
 sudo apt install -y $APT_PACKAGES
 
-echo "Running Pulse Secure CEF setup..."
-# Check if the file exists before trying to run it
-if [ -f /opt/pulsesecure/bin/setup_cef.sh ]; then
-    sudo /opt/pulsesecure/bin/setup_cef.sh install
-else
-    echo "ERROR: /opt/pulsesecure/bin/setup_cef.sh not found."
-    echo "Please ensure Pulse Secure is installed in /opt/pulsesecure first."
-    exit 1
-fi
-
 echo "Cleaning up downloaded files..."
 cd ..
 rm -rf "$TEMP_DIR"
